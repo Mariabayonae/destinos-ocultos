@@ -10,10 +10,7 @@
 
 <style>
 
-/* =========================
-   AVIÓN
-========================= */
-
+/* AVIÓN */
 .plane{
   position:fixed;
   top:0;
@@ -24,10 +21,7 @@
   z-index:9999;
 }
 
-/* =========================
-   BACK
-========================= */
-
+/* BACK */
 .back{
   position:absolute;
   top:15px;
@@ -40,43 +34,7 @@
   z-index:10;
 }
 
-/* =========================
-   HERO
-========================= */
-
-.hero{
-  position:relative;
-}
-
-.hero video{
-  width:100%;
-  height:70vh;
-  object-fit:cover;
-  display:block;
-  filter:brightness(0.85);
-}
-
-.hero h1{
-  position:absolute;
-  bottom:20px;
-  left:20px;
-  font-family:'Anton', sans-serif;
-  font-size:3.5rem;
-  color:#fff;
-  text-shadow:0 10px 30px rgba(0,0,0,0.8);
-}
-
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,0.45), transparent 60%);
-}
-
-/* =========================
-   INTRO
-========================= */
-
+/* INTRO */
 .intro{
   max-width:800px;
   margin:25px auto 10px;
@@ -88,10 +46,7 @@
   line-height:1.6;
 }
 
-/* =========================
-   BOTONES
-========================= */
-
+/* BOTONES */
 .tabs{
   display:flex;
   justify-content:center;
@@ -116,10 +71,7 @@
   color:white;
 }
 
-/* =========================
-   CARD INFO
-========================= */
-
+/* CARD */
 .card{
   max-width:800px;
   margin:20px auto;
@@ -131,16 +83,13 @@
   line-height:1.6;
 }
 
-/* =========================
-   GALERÍA
-========================= */
-
+/* GALERÍA */
 .gallery{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:12px;
   max-width:900px;
-  margin:35px auto 70px;
+  margin:35px auto 20px;
 }
 
 .gallery img{
@@ -150,15 +99,20 @@
   border-radius:14px;
 }
 
-/* =========================
-   FONDO CAFÉ SOLO PARA ESTE DESTINO
-========================= */
+/* VIDEO ABAJO */
+.video-bottom{
+  width:100%;
+  max-width:900px;
+  margin:40px auto 60px;
+  display:block;
+  border-radius:16px;
+}
 
+/* FONDO */
 .bg-shirakawa{
   position:fixed;
   inset:0;
   z-index:-2;
-
   background:
     radial-gradient(circle at 20% 20%, rgba(120, 85, 60, 0.25), transparent 55%),
     radial-gradient(circle at 80% 60%, rgba(160, 120, 90, 0.18), transparent 60%),
@@ -171,28 +125,21 @@
 
 <body>
 
-<!-- ✈️ avión -->
 <div class="plane">✈️</div>
-
-<!-- ☕ fondo café SOLO DESTINO -->
 <div class="bg-shirakawa"></div>
 
 <a class="back" href="index.html">← Volver</a>
 
-<!-- HERO -->
-<div class="hero">
-
-  <video autoplay muted loop playsinline>
-    <source src="video/shirakawa2.mp4">
-  </video>
-
-  <h1>SHIRAKAWA-GO</h1>
-
+<!-- FOTO GALERÍA ARRIBA -->
+<div class="gallery">
+  <img src="fotos/shirakawa2.jpg">
+  <img src="fotos/shirakawamedio.jpg">
+  <img src="fotos/shirakawa3.jpg">
 </div>
 
 <!-- INTRO -->
 <div class="intro">
-Shirakawa-go es un pueblo tradicional japonés famoso por sus casas de techo de paja diseñadas para resistir fuertes nevadas. Es uno de los paisajes más icónicos del invierno en Japón.
+Shirakawa-go es un pueblo tradicional japonés famoso por sus casas de techo de paja diseñadas para resistir fuertes nevadas.
 </div>
 
 <!-- BOTONES -->
@@ -210,14 +157,10 @@ Shirakawa-go es un pueblo tradicional japonés famoso por sus casas de techo de 
 Explora Shirakawa-go usando los botones.
 </div>
 
-<!-- GALERÍA -->
-<div class="gallery">
-
-  <img src="fotos/shirakawa2.jpg">
-  <img src="fotos/shirakawamedio.jpg">
-  <img src="fotos/shirakawa3.jpg">
-
-</div>
+<!-- VIDEO ABAJO -->
+<video class="video-bottom" autoplay muted loop playsinline>
+  <source src="video/shirakawa2.mp4">
+</video>
 
 <script>
 
@@ -235,40 +178,19 @@ function setInfo(type, btn){
   const info=document.getElementById("info");
 
   if(type==="epoca"){
-    info.innerHTML = `
-    Invierno (diciembre-febrero): el pueblo se cubre completamente de nieve y parece un paisaje de cuento.<br><br>Verano: más verde, tranquilo y con menos turistas.
-    `;
+    info.innerHTML = `Invierno: nieve total y paisaje de cuento.<br>Verano: verde y tranquilo.`;
   }
 
   if(type==="ropa"){
-    info.innerHTML = `
-    Invierno:<br>
-    - Abrigo grueso<br>
-    - Botas impermeables<br>
-    - Guantes y gorro<br><br>
-
-    Verano:<br>
-    - Ropa ligera<br>
-    - Chaqueta para la noche
-    `;
+    info.innerHTML = `Invierno: abrigo, botas, guantes.<br>Verano: ropa ligera + chaqueta.`;
   }
 
   if(type==="imperdibles"){
-    info.innerHTML = `
-    - Mirador Shiroyama<br>
-    - Casas tradicionales gassho-zukuri<br>
-    - Paisajes nevados iluminados<br>
-    - Caminatas por el pueblo
-    `;
+    info.innerHTML = `Mirador Shiroyama, casas gassho-zukuri, caminatas.`;
   }
 
   if(type==="precios"){
-    info.innerHTML = `
-    Transporte: 20–60 USD<br>
-    Alojamiento: 80–200 USD<br>
-    Comida: 10–25 USD<br>
-    Miradores: gratis
-    `;
+    info.innerHTML = `Transporte 20–60 USD, alojamiento 80–200 USD.`;
   }
 
 }
