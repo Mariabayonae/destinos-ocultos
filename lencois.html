@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lençóis Maranhenses</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   BASE
+========================= */
+
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  overflow-x:hidden;
+  background:linear-gradient(180deg,#f4efe6,#d8c7a1,#ffffff);
+  color:#2d2d2d;
+}
+
+/* fondo ambiental */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(139,104,72,0.20), transparent 50%),
+    radial-gradient(circle at 80% 60%, rgba(181,160,104,0.18), transparent 55%),
+    radial-gradient(circle at 50% 90%, rgba(88,120,90,0.12), transparent 55%);
+}
+
+/* =========================
+   AVIÓN
+========================= */
+
+.plane{
+  position:fixed;
+  top:0;
+  left:0;
+  font-size:24px;
+  pointer-events:none;
+  transform:translate(-50%, -50%);
+  z-index:9999;
+}
+
+/* =========================
+   BOTÓN BACK
+========================= */
+
+.back{
+  position:absolute;
+  top:15px;
+  left:15px;
+  padding:8px 14px;
+
+  background:rgba(80,60,40,0.35);
+  backdrop-filter:blur(8px);
+
+  border:1px solid rgba(255,255,255,0.25);
+  border-radius:12px;
+
+  color:white;
+  text-decoration:none;
+
+  z-index:10;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+  text-align:center;
+  padding:60px 20px 20px;
+}
+
+.header h1{
+  font-family:'Anton', sans-serif;
+  font-size:4rem;
+  margin:0;
+  color:#5c4330;
+  letter-spacing:3px;
+}
+
+.header p{
+  max-width:800px;
+  margin:18px auto 0;
+  line-height:1.7;
+  color:#4b4b4b;
+}
+
+/* =========================
+   GALERÍA ARRIBA
+========================= */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+
+  max-width:1000px;
+  margin:40px auto;
+}
+
+.gallery img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+
+  border-radius:18px;
+
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+
+  transition:0.35s;
+}
+
+.gallery img:hover{
+  transform:scale(1.03);
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+.tabs{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+
+  margin:20px auto;
+}
+
+.tab{
+  padding:12px 22px;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,0.10);
+  backdrop-filter:blur(10px);
+
+  border:1px solid rgba(92,67,48,0.45);
+
+  color:#5c4330;
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.tab:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,0.25);
+}
+
+.tab.active{
+  background:#5c4330;
+  color:white;
+}
+
+/* =========================
+   CARD INFO
+========================= */
+
+.card{
+  max-width:850px;
+  margin:25px auto 50px;
+
+  padding:24px;
+
+  background:rgba(255,255,255,0.40);
+  backdrop-filter:blur(12px);
+
+  border-radius:22px;
+
+  border:1px solid rgba(92,67,48,0.18);
+
+  box-shadow:0 15px 40px rgba(0,0,0,0.10);
+
+  line-height:1.8;
+}
+
+/* =========================
+   VIDEO ABAJO
+========================= */
+
+.video-bottom{
+  width:100%;
+  max-width:1000px;
+
+  display:block;
+
+  margin:0 auto 70px;
+
+  border-radius:22px;
+
+  box-shadow:0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+  .header h1{
+    font-size:2.7rem;
+  }
+
+  .gallery{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="plane">✈️</div>
+
+<a class="back" href="index.html">← Volver</a>
+
+<!-- HEADER -->
+<div class="header">
+
+  <h1>LENÇÓIS</h1>
+
+  <p>
+    Lençóis Maranhenses, en Brasil, parece otro planeta:
+    dunas gigantes de arena clara mezcladas con lagunas naturales
+    de agua cristalina que aparecen durante la temporada de lluvias.
+  </p>
+
+</div>
+
+<!-- FOTOS ARRIBA -->
+<div class="gallery">
+
+  <img src="fotos/lencois1.jpg">
+  <img src="fotos/lencois2.jpg">
+  <img src="fotos/lencois3.jpg">
+
+</div>
+
+<!-- BOTONES -->
+<div class="tabs">
+
+  <button class="tab active" onclick="setInfo('experiencia', this)">
+    Experiencia
+  </button>
+
+  <button class="tab" onclick="setInfo('aventura', this)">
+    Aventura
+  </button>
+
+  <button class="tab" onclick="setInfo('fotografia', this)">
+    Fotografía
+  </button>
+
+</div>
+
+<!-- INFO -->
+<div class="card" id="info">
+Descubre Lençóis Maranhenses usando los botones.
+</div>
+
+<!-- VIDEO ABAJO -->
+<video class="video-bottom" autoplay muted loop playsinline>
+  <source src="video/lencois.mp4">
+</video>
+
+<script src="scripts/lencois.js"></script>
+
+</body>
+</html>
